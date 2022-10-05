@@ -1,3 +1,6 @@
+# Large Data
+*.pkl
+
 # Prerequisites
 *.d
 
