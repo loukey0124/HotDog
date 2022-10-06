@@ -22,7 +22,7 @@ def ExtractFeature(fileName):
   
   try:
     audio, sampleRate = librosa.load(fileName, res_type='kaiser_fast')
-    mfccs = librosa.feature.mfcc(y=audio, sr=sampleRate, n_mfcc=70)
+    mfccs = librosa.feature.mfcc(y=audio, sr=sampleRate, n_mfcc=50)
     padWidth = MAX_PAD_LEN - mfccs.shape[1]
     mfccs = np.pad(mfccs, pad_width=((0,0), (0, padWidth)), mode='constant')
     
@@ -36,8 +36,8 @@ def ExtractFeature(fileName):
 
 def LoadData(read):
   if read == True:
-    dataSetPath = '../UrbanSound8K/audio/'
-    metaData = pd.read_csv('../Urbansound8K/metadata/UrbanSound8K.csv')
+    dataSetPath = './UrbanSound8K/audio/'
+    metaData = pd.read_csv('./UrbanSound8K\metadata/UrbanSound8K.csv')
     features = []
   
     for index, row in metaData.iterrows():
@@ -72,9 +72,8 @@ def SetModel(featuresdf, batch_size, epochs):
   x_train, x_test, y_train, y_test = train_test_split(X, yy, test_size=0.2, random_state=42)
  
   n_columns = 174
-  n_row = 70
+  n_row = 50
   n_channels = 1
-  n_classes = 10
   
   with tf.device('/cpu:0'):
     x_train = tf.reshape(x_train, [-1, n_row, n_columns, n_channels])
