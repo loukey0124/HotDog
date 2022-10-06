@@ -5,7 +5,7 @@ class Mic:
     def __init__(self):
         self.CHUNK = 1024
         self.FORMAT = pyaudio.paInt16
-        self.CHANNELS = 1
+        self.CHANNELS = 2
         self.RATE = 44100
         self.FILENAME = "record.wav"
         self.p = pyaudio.PyAudio()
@@ -36,7 +36,4 @@ class Mic:
         wf.close()
 
 if __name__ == '__main__':
-    # n = int(input())
-    m = Mic()
-    m.Record(1)
-    del m
+    n = int(input())

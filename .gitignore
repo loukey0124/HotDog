@@ -1,5 +1,6 @@
 # Large Data
 *.pkl
+/UrbanSound8K
 
 # Prerequisites
 *.d
