@@ -1,0 +1,30 @@
+------기본 설치------
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install samba samba-common-bin
+sudo apt-get install virtualenv
+
+------파이썬 3.7.2설치------
+git clone https://github.com/kimsehwan96/Auto-Install-python3.7.git
+cd Auto-Install-python3.7
+sudo chmod +x install.sh
+sudo ./install.sh
+
+virtualenv (환경명) -p python3.7 #파이썬3.7.2 가상환경 생성
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip #파이썬 pip 설치
+pip install https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp37-cp37m-linux_armv7l.whl
+#텐서플로우 라이트 설치
+
+sudo apt-get install llvm
+python -m pip install --upgrade pip setuptools wheel
+pip install librosa
+sudo apt-get install libatlas-base-dev
+sudo apt-get install portaudio19-dev
+sudo apt-get install libffi6
+
+pip install pyaudio
+pip install flask
+pip install opencv-python
+pip install RPi.gpio
+pip install spidev
